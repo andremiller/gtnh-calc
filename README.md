@@ -2,7 +2,7 @@
 
 This is a fork of [ShadowTheAge's GTNH Calculator](https://github.com/ShadowTheAge/gtnh) for testing local changes, with AI assistance used for coding.
 
-[![Tests](https://github.com/ShadowTheAge/gtnh/actions/workflows/deploy.yml/badge.svg)](https://github.com/ShadowTheAge/gtnh/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/andremiller/gtnh-calc/actions/workflows/deploy.yml/badge.svg)](https://github.com/andremiller/gtnh-calc/actions/workflows/deploy.yml)
 
 A calculator for GregTech: New Horizons recipes and production chains.
 Large parts of this project were written using AI assistance, so code style and quality are all over the place.
@@ -23,6 +23,16 @@ npm install
 ```bash
 npm start
 ```
+
+## Deployment
+
+Tests, builds, and GitHub Pages deployment run only when manually triggered; pushes do not start the workflow.
+
+1. In the repository's **Settings → Pages**, set **Source** to **GitHub Actions** (one-time setup).
+2. Open [Actions → Deploy to GitHub Pages](https://github.com/andremiller/gtnh-calc/actions/workflows/deploy.yml).
+3. Click **Run workflow**, select `main`, and confirm **Run workflow**.
+
+The workflow runs tests and builds the app before publishing. Deployment requires both to succeed. The published site URL is available in the workflow's deployment output.
 
 ## License
 
