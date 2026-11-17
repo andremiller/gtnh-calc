@@ -1,0 +1,16 @@
+{
+    "modListVersion": 2,
+    "modList": [
+        {
+            "modid": "${modId}",
+            "name": "${modName}",
+            "description": "Client-side exporter scaffold for GTNH Calculator.",
+            "version": "${modVersion}",
+            "mcversion": "${minecraftVersion}",
+            "authorList": [],
+            "requiredMods": [],
+            "dependencies": [],
+            "useDependencyInformation": false
+        }
+    ]
+}

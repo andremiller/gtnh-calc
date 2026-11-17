@@ -6,6 +6,8 @@ This is a fork of [ShadowTheAge's GTNH Calculator](https://github.com/ShadowTheA
 
 ## Changes since fork
 
+- Added a [client-side export mod scaffold](gtnh-calc-export-mod/README.md) with a local `/gtnh-calc-export` command.
+
 - Merged [upstream PR #132](https://github.com/ShadowTheAge/gtnh/pull/132) by [Bmandk](https://github.com/Bmandk): adds a “Whole recipes only” setting to prevent fractional crafts, preserving the original commit and authorship.
 
 [![Deploy](https://github.com/andremiller/gtnh-calc/actions/workflows/deploy.yml/badge.svg)](https://github.com/andremiller/gtnh-calc/actions/workflows/deploy.yml)
