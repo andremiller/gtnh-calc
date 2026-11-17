@@ -31,6 +31,10 @@ Tests use Jest with ts-jest and the Node environment. Name tests `*.test.ts` und
 
 Add regression cases for calculation or data-loading changes. Use `.gtnh` fixtures for solver scenarios, and inspect snapshot differences before accepting updates. No coverage threshold is configured. Run tests and the build before submitting changes.
 
+## Documentation Maintenance
+
+Keep `README.md` up to date when adding features or changing behavior, setup, or deployment. Add a concise bullet under “Changes since fork” for each meaningful change, linking upstream pull requests and crediting their authors when applicable.
+
 ## Commit & Pull Request Guidelines
 
 History uses short, descriptive subjects such as “Machine updates” and “Update tests”; no enforced Conventional Commits format is evident.
