@@ -26,3 +26,7 @@ The build uses the GTNH convention tooling from [ExampleMod1.7.10](https://githu
 The scaffold builds successfully, and its packaged classes and mod metadata have been inspected. The calculator test suite (33 tests and 29 snapshots) and application build also passed using Node 24; CI targets Node 20.
 
 In-game verification of the scaffold was confirmed on 17 November 2026: `/gtnh-calc-export` prints `Exporting` in chat.
+
+## Export format
+
+See the [version 7 binary and atlas specification](../docs/export-format.md) for the browser contract and requirements for future direct exports.

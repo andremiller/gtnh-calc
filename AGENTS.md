@@ -6,6 +6,8 @@
 - `src/tests/` contains automated tests and committed snapshots; root `tests/` holds `.gtnh` scenario fixtures.
 - `index.html` and `assets/` provide the browser interface and static resources.
 - `data/` holds calculator datasets. `export/` contains the C# data processor; follow `export/README.md` when regenerating data.
+- `gtnh-calc-export-mod/` contains the Java client-side export mod and its standalone Gradle build.
+- `docs/` contains technical documentation, including `docs/export-format.md` for the binary and icon atlas contract.
 - `dist/` contains generated build output. Make application changes in source files.
 
 ## Build, Test, and Development Commands
@@ -34,6 +36,8 @@ Add regression cases for calculation or data-loading changes. Use `.gtnh` fixtur
 ## Documentation Maintenance
 
 Keep `README.md` up to date when adding features or changing behavior, setup, or deployment. Add a concise bullet under “Changes since fork” for each meaningful change, linking upstream pull requests and crediting their authors when applicable.
+
+Keep `docs/export-format.md` in sync when changing binary serialization, repository loading, record layouts, search indexing, or icon atlas generation and consumption. Cross-check format changes against both producer and consumer source, and distinguish compatibility requirements from exporter implementation details. Update `gtnh-calc-export-mod/README.md` when changing the mod's build, installation, or command behavior.
 
 ## Commit & Pull Request Guidelines
 

@@ -6,6 +6,8 @@ This is a fork of [ShadowTheAge's GTNH Calculator](https://github.com/ShadowTheA
 
 ## Changes since fork
 
+- Documented the [calculator binary and icon atlas formats](docs/export-format.md) for direct client exports.
+
 - Added a [client-side export mod scaffold](gtnh-calc-export-mod/README.md) with a local `/gtnh-calc-export` command.
 
 - Merged [upstream PR #132](https://github.com/ShadowTheAge/gtnh/pull/132) by [Bmandk](https://github.com/Bmandk): adds a “Whole recipes only” setting to prevent fractional crafts, preserving the original commit and authorship.
