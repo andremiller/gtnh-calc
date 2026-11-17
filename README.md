@@ -1,5 +1,7 @@
 # GTNH Calculator
 
+This is a fork of [ShadowTheAge's GTNH Calculator](https://github.com/ShadowTheAge/gtnh) for testing local changes, with AI assistance used for coding.
+
 [![Tests](https://github.com/ShadowTheAge/gtnh/actions/workflows/deploy.yml/badge.svg)](https://github.com/ShadowTheAge/gtnh/actions/workflows/deploy.yml)
 
 A calculator for GregTech: New Horizons recipes and production chains.
