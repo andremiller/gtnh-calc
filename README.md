@@ -2,6 +2,8 @@
 
 This is a fork of [ShadowTheAge's GTNH Calculator](https://github.com/ShadowTheAge/gtnh) for testing local changes, with AI assistance used for coding.
 
+[View the calculator online](https://andremiller.github.io/gtnh-calc/).
+
 ## Changes since fork
 
 - Merged [upstream PR #132](https://github.com/ShadowTheAge/gtnh/pull/132) by [Bmandk](https://github.com/Bmandk): adds a “Whole recipes only” setting to prevent fractional crafts, preserving the original commit and authorship.
