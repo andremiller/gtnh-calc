@@ -1,6 +1,6 @@
 # GTNH Data Export Process
 
-This document explains how to export and process data for the GTNH Calculator.
+This document explains the existing NESQL/C# process for the GTNH Calculator. For direct Macerator and Electric Blast Furnace exports on GTNH 2.9.0, use the [client mod](../gtnh-calc-export-mod/README.md). See [export scope and filtering](../docs/export-scope.md) for how the two pipelines select data.
 
 ## Prerequisites
 

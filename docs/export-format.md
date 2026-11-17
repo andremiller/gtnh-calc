@@ -1,6 +1,6 @@
 # Calculator export format (version 7)
 
-This specifies the existing browser contract for a future direct client exporter. It does not specify NESQL's intermediate database. The authoritative writer is [MemoryMappedPackConverter](../export/MemoryMappedPackConverter.cs); the reader and record getters are in [repository.ts](../src/repository.ts).
+This specifies the existing browser contract for the direct client exporter. It does not specify NESQL's intermediate database. The C# reference writer is [MemoryMappedPackConverter](../export/MemoryMappedPackConverter.cs). The direct mod uses [PackWriter](../gtnh-calc-export-mod/src/main/java/tools/gtnh/calc/export/PackWriter.java) and [BinaryWriter](../gtnh-calc-export-mod/src/main/java/tools/gtnh/calc/export/BinaryWriter.java); the reader and record getters are in [repository.ts](../src/repository.ts). See [export scope](export-scope.md) for coverage and filtering differences.
 
 ## Binary envelope and primitives
 
@@ -123,4 +123,20 @@ Read-only inspection of the checked-in files found version 7, 17,699,195 compres
 
 A direct client exporter needs only the reachable calculator object graph and corresponding icons, rather than a full NESQL dump. It must still derive identities, search masks, reverse recipe links, container indices, machine associations and service entries before writing references. Emit valid empty arrays for absent lists and preserve nullable objects only where consumers tolerate them.
 
-Binary compatibility and content parity are separate goals. [PackGenerator](../export/PackGenerator.cs) runs conversion, preprocessing, hardcoded fixes, font corrections, circuit-conflict calculation and optional historical-recipe inclusion before serialization. Filtering, synthetic aspect recipes, fixes and recipe identity policies need separate decisions when implementing the new exporter; this specification does not imply they can all be discarded. No browser format change or direct export implementation is introduced here.
+Binary compatibility and content parity are separate goals. [PackGenerator](../export/PackGenerator.cs) runs conversion, preprocessing, hardcoded fixes, font corrections, circuit-conflict calculation and optional historical-recipe inclusion before serialization. Filtering, synthetic aspect recipes, fixes and recipe identity policies need separate decisions when implementing the new exporter; this specification does not imply they can all be discarded. The format remains version 7; the direct mod implementation is described below.
+
+## Direct mod export (0.2.1)
+
+The [client mod](../gtnh-calc-export-mod/README.md) writes this format directly for the Macerator and Electric Blast Furnace maps in GTNH 2.9.0. It collects a detached graph, assigns record offsets before writing references, and stores strings with zero padding. All list fields have real array records, and the remap list is empty.
+
+Goods retain registry-based identities. Tagged-item NBT compounds are recursively sorted by key before hashing, so their IDs need not match the old C# pipeline's textual NBT hashes. Recipe IDs are `r:gt:<map identifier>:<SHA-1>` over length-delimited normalized fields: map ID, energy/duration/tier/heat, ordered I/O and sorted numeric metadata. Alternative item sets use `o:gt:<SHA-1>` over sorted, length-delimited variant IDs. Identical normalized recipes are deduplicated and reported. There is no historical ID migration.
+
+Only electric singleblocks occupy the voltage-indexed slots. Steam singleblocks use the alternative-crafter list (the format calls this list `multiblocks`), allowing the calculator's existing steam rules to apply. For maps without electric singleblocks, the default crafter is also placed first in that list because the solver selects the first eligible alternative.
+
+The mod translates GT's ULV-based machine tiers to LV-based singleblock slots, clamps ULV recipe requirements to calculator LV, and stores per-amp voltage plus amperage so their product preserves native EU/t. Fractional per-amp voltage is unsupported. `COIL_HEAT` metadata populates EBF special value, falling back to legacy `mSpecialValue`. Other numeric metadata and booleans (0/1) are retained. Layout grids are row-major and at most four columns wide; this is a calculator layout, not a pixel copy of NEI.
+
+The graph includes reverse links, fluid-container item-list indices, zero-count catalysts, and service items. Search masks use names/tooltips before HTML encoding. Registry container associations add filled and empty items for referenced fluids; custom container adapters are deferred. Unsupported special slots, probabilistic consumption, tagged fluids, differing fluid alternatives and nonnumeric metadata cause a reported recipe skip. Whole-percent output chances use midpoint-to-even rounding. The report accounts for every source candidate, including disabled/fake entries and duplicates.
+
+Icons are rendered at 64×64 in client-thread batches, box-filtered with premultiplied alpha to 32×32, then placed without the old eight-bit row wrap. The bundled encoder writes lossless WebP. Rendering failures produce checkerboards and report entries. Encoding and serialization operate on detached data in a worker. Each run gets a fresh directory; temporary files become final artifacts before a `COMPLETE` marker is written. Failed or interrupted runs without that marker must not be used.
+
+The synthetic fixture in `src/tests/fixtures/direct-export.bin` is generated by the mod's `PackWriterTest` and loaded by the browser's real repository and solver in `src/tests/directExport.test.ts`. It verifies storage and consumer compatibility, not installed-pack coverage or OpenGL behavior; those require separate in-game verification, with the current real-export results recorded in [export scope](export-scope.md).

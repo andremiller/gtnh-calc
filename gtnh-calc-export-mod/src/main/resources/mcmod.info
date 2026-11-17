@@ -4,7 +4,7 @@
         {
             "modid": "${modId}",
             "name": "${modName}",
-            "description": "Client-side exporter scaffold for GTNH Calculator.",
+            "description": "Direct Macerator and Electric Blast Furnace export for GTNH Calculator.",
             "version": "${modVersion}",
             "mcversion": "${minecraftVersion}",
             "authorList": [],

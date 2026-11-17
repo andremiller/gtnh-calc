@@ -6,6 +6,8 @@ This is a fork of [ShadowTheAge's GTNH Calculator](https://github.com/ShadowTheA
 
 ## Changes since fork
 
+- Added [direct client exports](gtnh-calc-export-mod/README.md) for GTNH 2.9.0 Macerator and Electric Blast Furnace recipes, including a matching WebP atlas, export report, and separate electric/steam machine selection.
+
 - Documented the [calculator binary and icon atlas formats](docs/export-format.md) for direct client exports.
 
 - Added a [client-side export mod scaffold](gtnh-calc-export-mod/README.md) with a local `/gtnh-calc-export` command.
@@ -18,7 +20,7 @@ A calculator for GregTech: New Horizons recipes and production chains.
 Large parts of this project were written using AI assistance, so code style and quality are all over the place.
 I just wanted to quickly put together something I can use to calculate GTNH chains. After this goal is done, it won't be an actively maintained project.
 
-Data building is done using the NESQL Exporter mod and a C# processing tool. See [export/README.md](export/README.md) for detailed instructions.
+Full datasets are built using the NESQL Exporter mod and a C# processing tool. The [client export mod](gtnh-calc-export-mod/README.md) can directly export a Macerator and Electric Blast Furnace subset. See [export/README.md](export/README.md) for the C# process and [export scope](docs/export-scope.md) for coverage differences.
 
 ## Development
 

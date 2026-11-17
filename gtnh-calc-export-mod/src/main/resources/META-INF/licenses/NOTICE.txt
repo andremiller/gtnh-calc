@@ -1,0 +1,10 @@
+This mod bundles org.sejda.imageio:webp-imageio:0.1.6, a fork of Luciad's
+WebP ImageIO plugin (Apache License 2.0):
+https://github.com/sejda-pdf/webp-imageio
+Copyright 2012 Luciad (http://www.luciad.com).
+
+Its native encoder includes libwebp, copyright Google Inc., under the
+BSD license and patent grant. The accompanying libwebp-copyright.txt
+contains libwebp's license and attribution text as distributed by Debian.
+The bundled plugin and native libraries retain their original packages
+and resource paths because JNI depends on their names.
