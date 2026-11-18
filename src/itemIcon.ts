@@ -8,7 +8,7 @@ let oredictElements: IconBox[] = [];
 
 // Global actions map
 export const actions: { [key: string]: string } = {
-    "item_icon_click": "Left/Right click to add recipe • Middle click to add as product",
+    "item_icon_click": "Left click: Recipes that produce this\nRight click: Recipes that use this\nMiddle click: Add as product",
     "select": "Click to select",
     "toggle_link_ignore": "Click to toggle link ignore",
     "crafter_click": "Click to select another crafter"
@@ -57,7 +57,7 @@ export class IconBox extends HTMLElement
         ShowTooltip(this, {
             goods,
             amountText,
-            action: (actionType ? actions[actionType] : undefined) ?? "Left/Right click to view Production/Consumption for this item"
+            action: (actionType ? actions[actionType] : undefined) ?? "Left click: Recipes that produce this\nRight click: Recipes that use this"
         });
     }
 
