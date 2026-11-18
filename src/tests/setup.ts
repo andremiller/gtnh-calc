@@ -11,7 +11,7 @@ globalAny.window = {
 };
 
 export async function setupRepository() {
-    const dataPath = path.join(process.cwd(), 'data', 'data.bin');
+    const dataPath = path.join(process.cwd(), 'data', '2.9.0', 'data.bin');
     const compressedData = await fs.readFile(dataPath);
     const buffer = await new Promise<ArrayBuffer>((resolve, reject) => {
         zlib.gunzip(compressedData, (err, decompressed) => {

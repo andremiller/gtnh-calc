@@ -18,8 +18,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -57,11 +55,14 @@ jobs:
       
       - name: Verify data.bin
         run: |
-          if [ ! -f dist/data/data.bin ]; then
+          if [ ! -f dist/data/2.9.0/data.bin ]; then
             echo "Error: data.bin is missing!"
             exit 1
           fi
       
+      - name: Verify atlas
+        run: test -f dist/data/2.9.0/atlas.webp
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
       

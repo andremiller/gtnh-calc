@@ -2,12 +2,12 @@ const loading = document.getElementById("loading")!;
 try {
     // Load the atlas image
     const atlas = new Image();
-    atlas.src = "./data/atlas.webp";
+    atlas.src = "./data/2.9.0/atlas.webp";
 
     // Load repository and data in parallel
     const [repositoryModule, response] = await Promise.all([
         import("./repository.js"),
-        fetch(import.meta.resolve("./data/data.bin"))
+        fetch(import.meta.resolve("./data/2.9.0/data.bin"))
     ]);
     const stream = response.body!.pipeThrough(new DecompressionStream("gzip"));
     const buffer = await new Response(stream).arrayBuffer();

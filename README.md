@@ -6,19 +6,9 @@ This is a fork of [ShadowTheAge's GTNH Calculator](https://github.com/ShadowTheA
 
 ## Changes since fork
 
-- Verified direct exporter **0.3.2** on GTNH **2.9.0 final**: 225,991 recipes, 304 successful research read-back checks and a successful user browser check; see the [validation record](docs/export-validation-2.9.0.md) for provenance and limitations.
+- Versioned datasets are now tracked in the same repo under `/data`.
 
-- Added detailed exporter failure reports and automatic Research Station metadata read-back checks to the [normal export command](gtnh-calc-export-mod/README.md).
-
-- Sped up the [client exporter](gtnh-calc-export-mod/README.md) by filtering before aspect calculation, reusing ingredient identities, and increasing the collection budget; added chat progress and timing reports. The first full 2.9.0 export has a [recorded sanity check](docs/export-validation-2.9.0.md) with remaining exclusions and compatibility caveats.
-
-- Expanded the [direct client exporter](gtnh-calc-export-mod/README.md) to the NESQL/C# recipe systems and filtering, legacy recipe IDs, optional previous-binary remaps, and a read-only export comparison tool; compatibility adapters reference [NESQL Exporter contributors](https://github.com/ShadowTheAge/nesql-exporter/tree/b5b896ebd9bcf4cfe1f4fad19ccdc7de8414ee57). Full exports have passed structural, diagnostic and browser checks; exhaustive NEI coverage is not claimed.
-
-- Added [direct client exports](gtnh-calc-export-mod/README.md) for GTNH 2.9.0 Macerator and Electric Blast Furnace recipes, including a matching WebP atlas, export report, and separate electric/steam machine selection.
-
-- Documented the [calculator binary and icon atlas formats](docs/export-format.md) for direct client exports.
-
-- Added a [client-side export mod scaffold](gtnh-calc-export-mod/README.md) with a local `/gtnh-calc-export` command.
+- Added a [client-side export mod](gtnh-calc-export-mod/README.md) for GTNH 2.9.0 that writes calculator recipe data and a WebP icon atlas directly from the game, with optional previous-export compatibility. Compatibility adapters reference [NESQL Exporter contributors](https://github.com/ShadowTheAge/nesql-exporter).
 
 - Merged [upstream PR #132](https://github.com/ShadowTheAge/gtnh/pull/132) by [Bmandk](https://github.com/Bmandk): adds a “Whole recipes only” setting to prevent fractional crafts, preserving the original commit and authorship.
 
@@ -27,8 +17,6 @@ This is a fork of [ShadowTheAge's GTNH Calculator](https://github.com/ShadowTheA
 A calculator for GregTech: New Horizons recipes and production chains.
 Large parts of this project were written using AI assistance, so code style and quality are all over the place.
 I just wanted to quickly put together something I can use to calculate GTNH chains. After this goal is done, it won't be an actively maintained project.
-
-Full datasets are built using the NESQL Exporter mod and a C# processing tool. The [client export mod](gtnh-calc-export-mod/README.md) targets equivalent output directly from the game, with optional previous-export compatibility. Version 0.3.2 has completed in-game export diagnostics and a user browser check, with documented exclusions and best-effort historical matching. See [export/README.md](export/README.md) for the C# process and [export scope](docs/export-scope.md) for coverage differences.
 
 ## Development
 

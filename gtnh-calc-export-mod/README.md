@@ -82,7 +82,7 @@ export_dir="/absolute/path/to/completed/export"
 preview_dir=$(mktemp -d /tmp/gtnh-calc-preview.XXXXXX)
 test -f "$export_dir/COMPLETE" && \
     cp -a dist/. "$preview_dir/" && \
-    cp "$export_dir/data.bin" "$export_dir/atlas.webp" "$preview_dir/data/" && \
+    cp "$export_dir/data.bin" "$export_dir/atlas.webp" "$preview_dir/data/2.9.0/" && \
     python3 -m http.server 5501 --bind 127.0.0.1 --directory "$preview_dir"
 ```
 
@@ -91,7 +91,7 @@ Visit `http://localhost:5501`. Test fresh projects and representative existing p
 Compare a candidate against the checked-in reference or another export:
 
 ```bash
-python3 scripts/compare-exports.py data /path/to/new/export --samples 10
+python3 scripts/compare-exports.py data/2.9.0-beta /path/to/new/export --samples 10
 ```
 
 This read-only tool reports category/type counts, missing/shared identities, changed recipe fields, metadata, machine associations, goods and alias counts as JSON. Counts alone are not acceptance criteria: pack changes and reference-player state can cause legitimate differences.

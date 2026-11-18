@@ -5,7 +5,7 @@
 - `src/` contains the TypeScript application. Key modules include `solver.ts` for production calculations, `repository.ts` for recipe data, and `page.ts` for page models.
 - `src/tests/` contains automated tests and committed snapshots; root `tests/` holds `.gtnh` scenario fixtures.
 - `index.html` and `assets/` provide the browser interface and static resources.
-- `data/` holds calculator datasets. `export/` contains the C# data processor; follow `export/README.md` when regenerating data.
+- `data/` holds directly tracked versioned datasets: the app and tests use `data/2.9.0/`; `data/2.9.0-beta/` archives the C# RC dataset. `export/` contains the C# data processor; follow `export/README.md` when regenerating data.
 - `gtnh-calc-export-mod/` contains the Java client-side export mod and its standalone Gradle build.
 - `docs/` contains technical documentation: `docs/export-format.md` specifies the binary/atlas contract, and `docs/export-scope.md` compares direct and C# export coverage. `docs/export-validation-2.9.0.md` records the first full 0.3.1 in-game export sanity check, its provenance, timings and acceptance limitations, plus the completed 0.3.2 diagnostic run (304 research records verified; five invalid source door records identified).
 - `dist/` contains generated build output. Make application changes in source files.

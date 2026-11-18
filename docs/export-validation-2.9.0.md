@@ -4,13 +4,13 @@
 
 Version **0.3.2** is suitable for use with GTNH **2.9.0 final**, based on completed structural/solver checks, source-to-binary diagnostics and the user's successful browser check. The latest run has **225,991 recipes**, verifies all **304 research records** without mismatches and correctly excludes five unregistered source door records. Seven icon placeholders and unsupported dynamic recipes remain limitations. No further exporter repair is required for the investigated registry and research concerns.
 
-The sections below distinguish the initial 0.3.1 sanity check from its 0.3.2 diagnostic follow-up. Exhaustive NEI coverage and same-version C# parity are not claimed. The checked-in dataset remains unchanged.
+The sections below distinguish the initial 0.3.1 sanity check from its 0.3.2 diagnostic follow-up. Exhaustive NEI coverage and same-version C# parity are not claimed. Both source pairs are preserved unchanged in the versioned directories.
 
 ## Provenance and limits
 
-Initial sanity-check candidate: exporter **0.3.1**, GTNH **2.9.0 final**, GregTech **5.09.54.265**, NEI **2.8.171-GTNH**, run `20261118-121304-10035753893549066714` on 2026-11-18. The original files remain in the user's Prism instance; no generated dataset was copied into this repository.
+Initial sanity-check candidate: exporter **0.3.1**, GTNH **2.9.0 final**, GregTech **5.09.54.265**, NEI **2.8.171-GTNH**, run `20261118-121304-10035753893549066714` on 2026-11-18. The original files remain in the user's Prism instance; the validated pair is now tracked in `data/2.9.0/`.
 
-Reference: the checked-in C# dataset in `data/`, built from a GTNH 2.9 release candidate according to the user. It is not a same-version baseline, so this comparison cannot attribute every difference to either a pack change or exporter behavior.
+Reference: the archived C# dataset in `data/2.9.0-beta/`, built from a GTNH 2.9 release candidate according to the user. It is not a same-version baseline, so this comparison cannot attribute every difference to either a pack change or exporter behavior.
 
 The candidate is structurally sound and usable for local preview, with exclusions and compatibility gaps listed below. This is a sanity check, not full NEI-by-NEI acceptance or proof of parity with a C# export of 2.9.0 final.
 
@@ -92,3 +92,7 @@ Run `20261118-124215-1261595546582269294` completed on 2026-11-18 with `COMPLETE
 Comparison with 0.3.1 finds identical goods identities and category counts, 492 goods records with tooltip differences, 131 replaced recipe IDs, and 706 changed shared recipes. Of the replaced IDs, 112 have equivalent full content after ignoring I/O slots/order (Eye of Harmony and centrifuge maps); the remaining 19 belong to Crop Breeder (17) and Arcane Infusion (2). Of the changed shared recipes, 667 differ only in slots/order; the remaining 39 are item-aspect contents. No shared recipe's GT numeric metadata/timing/conflict fields changed. The remaining content differences have not been individually attributed; this is not a byte-for-byte deterministic export across launches. Raw legacy IDs include slots, so source ordering differences can change identities. The supplied history was the C# reference, not the previous direct export, and therefore does not guarantee aliases for those 131 prior direct-export IDs.
 
 The diagnostic run supports using this data, together with the user's successful browser check. Remaining documented exclusions and icon placeholders are limitations, rather than evidence of a broken binary or lookup bug. The five invalid source records and successful research audit no longer block adoption. No hardcoded recipe mappings, registry replacements or checked-in dataset changes were made.
+
+## Versioned repository storage
+
+The validated 0.3.2 binary/atlas pair is now tracked directly in `data/2.9.0/`, used by the app and tests. The previous submodule pair is preserved in `data/2.9.0-beta/`. Both pairs were verified against their source hashes; earlier statements about not replacing the dataset describe the validation work before this explicitly requested migration. The data submodule has been removed.
