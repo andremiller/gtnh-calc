@@ -35,6 +35,7 @@ export class PageManager {
     private currentPage: string | null = null;
     private pageListContainer: HTMLElement;
     private pageCache: Map<string, PageModel> = new Map();
+    private pageFilter: string = "";
     private undoInProgress: boolean = false;
 
     constructor() {
@@ -72,6 +73,17 @@ export class PageManager {
     }
 
     private setupEventListeners() {
+        const filterInput = document.getElementById('page-filter') as HTMLInputElement;
+        filterInput.addEventListener('input', () => {
+            this.pageFilter = filterInput.value;
+            this.render();
+        });
+        document.getElementById('page-filter-clear')!.addEventListener('click', () => {
+            filterInput.value = '';
+            this.pageFilter = '';
+            this.render();
+            filterInput.focus();
+        });
         this.pageListContainer.addEventListener('click', (e) => {
             const target = e.target as HTMLElement;
             const action = target.dataset.action;
@@ -136,7 +148,15 @@ export class PageManager {
     private render() {
         this.pageListContainer.innerHTML = '';
 
-        this.pages.forEach(pageName => {
+        const query = this.pageFilter.toLowerCase();
+        const visiblePages = this.pages.filter(name => name.toLowerCase().includes(query));
+        if (visiblePages.length === 0) {
+            const message = document.createElement('div');
+            message.className = 'page-filter-empty';
+            message.textContent = 'No matching pages';
+            this.pageListContainer.appendChild(message);
+        }
+        visiblePages.forEach(pageName => {
             if (pageName === this.currentPage) {
                 const container = document.createElement('div');
                 container.className = 'active-page';

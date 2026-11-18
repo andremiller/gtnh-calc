@@ -9,6 +9,8 @@ Large parts of this project were written using AI assistance, so code style and 
 
 ## Changes since fork
 
+- Filter saved pages by name as you type, with a clear button.
+
 - Item tooltips show an icon beside the name and include the hovered icon’s quantity.
 
 - Added quoted exact-phrase search, from [upstream PR #135](https://github.com/ShadowTheAge/gtnh/pull/135) by [Bmandk](https://github.com/Bmandk).

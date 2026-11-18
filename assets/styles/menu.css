@@ -133,3 +133,28 @@
     }
 }
 
+
+.page-filter {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    margin: 8px 0;
+    background-color: #0489C1;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.page-filter input {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+}
+
+.page-filter button {
+    flex-shrink: 0;
+}
+
+.page-filter-empty {
+    padding: 4px;
+}
