@@ -28,3 +28,5 @@ Each directory contains `data.bin` and its matching `atlas.webp`. See [validatio
 - **No License**:
   Due to the inclusion of copyrighted materials, this repository is provided *without a license*.
   I do not claim ownership over any of the content contained in the binary export files.
+
+Follow the [dataset update workflow](../docs/updating-datasets.md) before switching the active version. Machine rules use item identities; inspect test failures before updating snapshots.

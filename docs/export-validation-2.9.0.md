@@ -96,3 +96,11 @@ The diagnostic run supports using this data, together with the user's successful
 ## Versioned repository storage
 
 The validated 0.3.2 binary/atlas pair is now tracked directly in `data/2.9.0/`, used by the app and tests. The previous submodule pair is preserved in `data/2.9.0-beta/`. Both pairs were verified against their source hashes; earlier statements about not replacing the dataset describe the validation work before this explicitly requested migration. The data submodule has been removed.
+
+## Calculator integration corrections after activating 2.9.0
+
+Switching the automated tests to the new active dataset exposed 12 snapshot failures; the earlier successful solver smoke runs did not compare numeric expectations. Machine dispatch now resolves existing rules by stable item ID, preserving custom behavior for renamed Fusion machines. This is current calculation correctness, not a recipe migration feature.
+
+Scenario maintenance updates the CBD nitric-acid namespace and Epoxid recipe selection, and clears obsolete machine 797 selections in the ore-processing and UHV naquadah projects so current defaults apply. Snapshots were reviewed after restoring machine rules: remaining differences reflect current singleblock classification/default selection, timing/overclock behavior and the explicit Epoxid reference update. No dataset binaries or exporter matching rules were changed. The final suite passes 45 tests and 29 snapshots; the build passes. These automated checks do not replace in-game verification of every machine formula.
+
+Future changes follow [the dataset update workflow](updating-datasets.md), using the shared active version configuration, machine coverage checks and unresolved-reference assertions before accepting snapshot updates.

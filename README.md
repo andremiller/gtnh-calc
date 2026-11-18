@@ -2,6 +2,9 @@
 
 This is a fork of [ShadowTheAge's GTNH Calculator](https://github.com/ShadowTheAge/gtnh) for testing local changes, with AI assistance used for coding.
 
+A calculator for GregTech: New Horizons recipes and production chains.
+Large parts of this project were written using AI assistance, so code style and quality are all over the place.
+
 [View the calculator online](https://andremiller.github.io/gtnh-calc/).
 
 ## Changes since fork
@@ -12,11 +15,7 @@ This is a fork of [ShadowTheAge's GTNH Calculator](https://github.com/ShadowTheA
 
 - Merged [upstream PR #132](https://github.com/ShadowTheAge/gtnh/pull/132) by [Bmandk](https://github.com/Bmandk): adds a “Whole recipes only” setting to prevent fractional crafts, preserving the original commit and authorship.
 
-[![Deploy](https://github.com/andremiller/gtnh-calc/actions/workflows/deploy.yml/badge.svg)](https://github.com/andremiller/gtnh-calc/actions/workflows/deploy.yml)
 
-A calculator for GregTech: New Horizons recipes and production chains.
-Large parts of this project were written using AI assistance, so code style and quality are all over the place.
-I just wanted to quickly put together something I can use to calculate GTNH chains. After this goal is done, it won't be an actively maintained project.
 
 ## Development
 

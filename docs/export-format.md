@@ -108,6 +108,8 @@ Display names and tooltips are converted to HTML by [MinecraftFormatter](../expo
 
 ## Atlas contract
 
+The active version is configured in `src/dataset.ts`; app loading and tests share it, and the app sets the CSS `--item-atlas-url` property to the matching atlas. Machine calculation rules resolve by stable item ID rather than display name. See [dataset updates](updating-datasets.md) for verification before changing versions.
+
 The browser uses [itemIcon.ts](../src/itemIcon.ts) and [general.css](../assets/styles/general.css) to display `atlas.webp` at natural size, with 32×32 pixel tiles and **256 columns**:
 
 - `column = iconId % 256`, `row = floor(iconId / 256)`.

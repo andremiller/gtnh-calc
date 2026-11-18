@@ -1,3 +1,4 @@
+import { machineRuleNames } from "./machineIds.js";
 import { maxHeaderSize } from "http";
 import { RecipeModel, OverclockResult } from "./page.js";
 import { Fluid, Goods, Item, Recipe, RecipeInOut, RecipeIoType, RecipeType, Repository } from "./repository.js";
@@ -1928,4 +1929,8 @@ machines["Eye of Harmony"] = {
             choices.overclocks = Math.min(Math.max(choices.overclocks, 0), 24);
     },
     info: "NOTE: Power input/output not calculated"
+}
+
+export function GetMachine(item: {id: string}): Machine | undefined {
+    return machines[machineRuleNames[item.id]];
 }

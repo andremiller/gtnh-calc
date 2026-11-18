@@ -1,13 +1,15 @@
+import { datasetDirectory } from "./dataset.js";
 const loading = document.getElementById("loading")!;
 try {
     // Load the atlas image
     const atlas = new Image();
-    atlas.src = "./data/2.9.0/atlas.webp";
+    atlas.src = new URL(`./${datasetDirectory}/atlas.webp`, import.meta.url).href;
+    document.documentElement.style.setProperty("--item-atlas-url", `url("${atlas.src}")`);
 
     // Load repository and data in parallel
     const [repositoryModule, response] = await Promise.all([
         import("./repository.js"),
-        fetch(import.meta.resolve("./data/2.9.0/data.bin"))
+        fetch(new URL(`./${datasetDirectory}/data.bin`, import.meta.url))
     ]);
     const stream = response.body!.pipeThrough(new DecompressionStream("gzip"));
     const buffer = await new Response(stream).arrayBuffer();

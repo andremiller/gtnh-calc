@@ -58,3 +58,5 @@ Keep `docs/export-format.md` in sync when changing binary serialization, reposit
 History uses short, descriptive subjects such as “Machine updates” and “Update tests”; no enforced Conventional Commits format is evident.
 
 Keep commits focused. Pull requests should explain the problem, resulting behavior, and validation performed. Link relevant issues and include screenshots for visible interface changes. Describe dataset provenance when updating generated data.
+
+Follow the [dataset update workflow](docs/updating-datasets.md) before switching the active version. Machine rules use item identities; inspect test failures before updating snapshots.

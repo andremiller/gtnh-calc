@@ -1,7 +1,7 @@
 import { Model, Solution } from "./types/javascript-lp-solver.js";
 import { PageModel, RecipeGroupModel, RecipeModel, ProductModel, FlowInformation, LinkAlgorithm, OverclockResult } from './page.js';
 import { Goods, Item, OreDict, Recipe, RecipeIoType, RecipeObject, Repository } from "./repository.js";
-import { singleBlockMachine, machines, notImplementedMachine, GetSingleBlockMachine, GetParameter } from "./machines.js";
+import { singleBlockMachine, GetMachine, notImplementedMachine, GetSingleBlockMachine, GetParameter } from "./machines.js";
 import { voltageTier } from "./utils.js";
 
 class LinkCollection {
@@ -91,7 +91,7 @@ function PreProcessRecipe(recipeModel:RecipeModel, model:Model, collection:LinkC
     if (crafter === null && !canBeSingleblock) {
         for(let i = 0; i < recipe.recipeType.multiblocks.length; ++i) {
             const item = recipe.recipeType.multiblocks[i];
-            const machine = machines[item.name];
+            const machine = GetMachine(item);
             const excluded = machine?.excludesRecipe ? machine.excludesRecipe(recipe) : false;
             if (!excluded) {
                 crafter = item;
@@ -102,7 +102,7 @@ function PreProcessRecipe(recipeModel:RecipeModel, model:Model, collection:LinkC
             crafter = recipe.recipeType.defaultCrafter;
     }
     let isSingleblock = !crafter;
-    let machineInfo = crafter ? (machines[crafter.name] || notImplementedMachine) : GetSingleBlockMachine(recipe.recipeType);
+    let machineInfo = crafter ? (GetMachine(crafter) || notImplementedMachine) : GetSingleBlockMachine(recipe.recipeType);
     recipeModel.multiblockCrafter = crafter;
     recipeModel.machineInfo = machineInfo;
     if (gtRecipe && gtRecipe.durationTicks > 0) {

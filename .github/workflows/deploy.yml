@@ -53,15 +53,8 @@ jobs:
           echo "Data directory:"
           ls -la dist/data/
       
-      - name: Verify data.bin
-        run: |
-          if [ ! -f dist/data/2.9.0/data.bin ]; then
-            echo "Error: data.bin is missing!"
-            exit 1
-          fi
-      
       - name: Verify atlas
-        run: test -f dist/data/2.9.0/atlas.webp
+        run: for dir in dist/data/*/; do test -f "$dir/data.bin" && test -f "$dir/atlas.webp" || exit 1; done
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

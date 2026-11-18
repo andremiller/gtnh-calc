@@ -1,3 +1,4 @@
+import { Repository } from "../repository";
 import { PageModel, RecipeGroupModel, RecipeModel } from '../page';
 import { SolvePage } from '../solver';
 import * as fs from 'fs';
@@ -53,8 +54,19 @@ describe('Solver', () => {
                 const fileContent = fs.readFileSync(filePath, 'utf-8');
                 const pageData = JSON.parse(fileContent);
                 
+                function validate(group: any): void {
+                    for (const entry of group.elements || []) {
+                        if (entry.type === 'recipe') {
+                            expect(Repository.current.GetById(entry.recipeId)).not.toBeNull();
+                            if (entry.crafter) expect(Repository.current.GetById(entry.crafter)).not.toBeNull();
+                        } else validate(entry);
+                    }
+                }
+                validate(pageData.rootGroup);
+                for (const product of pageData.products || []) expect(Repository.current.GetById(product.goodsId)).not.toBeNull();
                 const page = new PageModel(pageData);
                 SolvePage(page);
+                expect(page.status).toBe("solved");
 
                 // Get expectations for all recipes and create a snapshot
                 const expectations = processRecipeGroup(page.rootGroup);
