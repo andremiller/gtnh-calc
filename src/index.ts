@@ -1,4 +1,5 @@
-import { datasetDirectory } from "./dataset.js";
+import { datasetDirectory, datasetVersion } from "./dataset.js";
+document.getElementById("dataset-version")!.textContent = `For GTNH version ${datasetVersion}`;
 const loading = document.getElementById("loading")!;
 try {
     // Load the atlas image

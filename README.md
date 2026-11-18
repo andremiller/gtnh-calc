@@ -15,7 +15,7 @@ Large parts of this project were written using AI assistance, so code style and 
 
 - Added middle-click to add an item directly to products from recipe groups, from [upstream PR #133](https://github.com/ShadowTheAge/gtnh/pull/133) by [Bmandk](https://github.com/Bmandk).
 
-- Versioned datasets are now tracked in the same repo under `/data`.
+- Versioned datasets are now tracked in the same repo under `/data`; the UI version label follows the active dataset.
 
 - Added a [client-side export mod](gtnh-calc-export-mod/README.md) for GTNH 2.9.0 that writes calculator recipe data and a WebP icon atlas directly from the game, with optional previous-export compatibility. Compatibility adapters reference [NESQL Exporter contributors](https://github.com/ShadowTheAge/nesql-exporter).
 
