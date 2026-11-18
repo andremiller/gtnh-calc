@@ -9,6 +9,8 @@ Large parts of this project were written using AI assistance, so code style and 
 
 ## Changes since fork
 
+- Added quoted exact-phrase search, from [upstream PR #135](https://github.com/ShadowTheAge/gtnh/pull/135) by [Bmandk](https://github.com/Bmandk).
+
 - Keep zero-quantity products visible in the product list, from [upstream PR #134](https://github.com/ShadowTheAge/gtnh/pull/134) by [Bmandk](https://github.com/Bmandk).
 
 - Added middle-click to add an item directly to products from recipe groups, from [upstream PR #133](https://github.com/ShadowTheAge/gtnh/pull/133) by [Bmandk](https://github.com/Bmandk).
