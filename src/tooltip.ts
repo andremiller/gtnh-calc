@@ -17,6 +17,7 @@ interface TooltipData {
     text?: string | null;
     action?: string | null;
     goods?: Goods;
+    amountText?: string | null;
     recipe?: Recipe | null;
     overrideIo?: RecipeInOut[];
 }
@@ -44,7 +45,7 @@ export function ShowTooltip(target: HTMLElement, data: TooltipData): void {
     const action = data.action ?? null;
     const recipe = data.recipe ?? null;
     const overrideIo = data.overrideIo;
-    ShowTooltipRaw(target, header, debug, text, mod, action, recipe, overrideIo);
+    ShowTooltipRaw(target, header, debug, text, mod, action, recipe, overrideIo, data.goods, data.amountText);
     target.focus();
     target.addEventListener("mouseleave", () => HideTooltip(target), { once: true });
     if (tooltipScrollCache.has(target)) {
@@ -76,11 +77,27 @@ function SetTextOptional(element:HTMLElement, data: string | null, html: boolean
     }
 }
 
-function ShowTooltipRaw(target:HTMLElement, header:string, debug:string|null, description:string|null, mod:string|null, action:string|null, recipe:Recipe|null, overrideIo?:RecipeInOut[])
+function ShowTooltipRaw(target:HTMLElement, header:string, debug:string|null, description:string|null, mod:string|null, action:string|null, recipe:Recipe|null, overrideIo?:RecipeInOut[], goods?:Goods, amountText?:string|null)
 {
     tooltip.style.display = "block";
     currentTooltipElement = target;
-    SetTextOptional(tooltipHeader, header, true);
+    tooltipHeader.replaceChildren();
+    if (goods) {
+        const icon = document.createElement("span");
+        icon.className = "icon tooltip-header-icon";
+        icon.setAttribute("aria-hidden", "true");
+        icon.style.setProperty("--pos-x", `${(goods.iconId % 256) * -32}px`);
+        icon.style.setProperty("--pos-y", `${Math.floor(goods.iconId / 256) * -32}px`);
+        tooltipHeader.append(icon);
+    }
+    const title = document.createElement("span");
+    title.innerHTML = header;
+    if (goods && amountText) {
+        const quantity = document.createElement("span");
+        quantity.textContent = ` x ${amountText}`;
+        title.append(quantity);
+    }
+    tooltipHeader.append(title);
     SetTextOptional(tooltipDebugInfo, debug, false);
     SetTextOptional(tooltipText, description, true);
     SetTextOptional(tooltipAction, action, false);

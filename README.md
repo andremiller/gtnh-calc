@@ -9,6 +9,8 @@ Large parts of this project were written using AI assistance, so code style and 
 
 ## Changes since fork
 
+- Item tooltips show an icon beside the name and include the hovered icon’s quantity.
+
 - Added quoted exact-phrase search, from [upstream PR #135](https://github.com/ShadowTheAge/gtnh/pull/135) by [Bmandk](https://github.com/Bmandk).
 
 - Keep zero-quantity products visible in the product list, from [upstream PR #134](https://github.com/ShadowTheAge/gtnh/pull/134) by [Bmandk](https://github.com/Bmandk).

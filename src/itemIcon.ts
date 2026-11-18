@@ -35,12 +35,7 @@ export class IconBox extends HTMLElement
         this.addEventListener("mouseenter", () => {
             const obj = this.GetDisplayObject();
             if (obj) {
-                const actionType = this.getAttribute('data-action');
-                const actionText = actionType ? actions[actionType] : undefined;
-                ShowTooltip(this, {
-                    goods: obj,
-                    action: actionText ?? "Left/Right click to view Production/Consumption for this item"
-                });
+                this.ShowGoodsTooltip(obj);
                 
                 this.UpdateHighlightStyle();
             }
@@ -53,6 +48,17 @@ export class IconBox extends HTMLElement
         this.addEventListener('contextmenu', this.RightClick);
         this.addEventListener('click', this.LeftClick);
         this.UpdateIconId();
+    }
+
+    private ShowGoodsTooltip(goods: Goods) {
+        const actionType = this.getAttribute('data-action');
+        const label = this.getAttribute('data-amount');
+        const amountText = label && /^-?(?:<)?[0-9]/.test(label) ? label : null;
+        ShowTooltip(this, {
+            goods,
+            amountText,
+            action: (actionType ? actions[actionType] : undefined) ?? "Left/Right click to view Production/Consumption for this item"
+        });
     }
 
     private StartOredictCycle(oredict: OreDict) {
@@ -96,17 +102,21 @@ export class IconBox extends HTMLElement
             
             // Update tooltip if this element is currently being hovered
             if (IsHovered(this)) {
-                ShowTooltip(this, { goods: obj });
+                this.ShowGoodsTooltip(obj);
                 this.UpdateHighlightStyle();
             }
         }
     }
 
     static get observedAttributes() {
-        return ['data-id'];
+        return ['data-id', 'data-amount', 'data-action'];
     }
 
     attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+        if (name !== 'data-id') {
+            if (IsHovered(this)) this.UpdateIconId();
+            return;
+        }
         if (name === 'data-id') {
             this.StopOredictCycle();
             this.obj = Repository.current.GetById<RecipeObject>(newValue);
