@@ -12,15 +12,18 @@ final class ExportData {
     final List<Method> methods = new ArrayList<>();
     final List<Recipe> recipes = new ArrayList<>();
     final List<Goods> service = new ArrayList<>();
-    final List<String> report = new ArrayList<>();
+    final List<String> report = Collections.synchronizedList(new ArrayList<>());
+    final Map<String, ResearchAudit.Snapshot> researchSnapshots = new TreeMap<>();
+    int researchChecked, researchMismatches, researchExcluded;
+    final Map<String, Recipe> remaps = new TreeMap<>();
 
     static final class Goods {
         final String id;
         final boolean fluid;
-        String name, mod, internal, unlocalized, nbt;
+        String name, mod, internal, unlocalized, nbt, iconKey;
         List<String> tooltip = new ArrayList<>();
         int numericId, damage, stackSize = 64, icon, amount;
-        boolean gas;
+        boolean gas, keep, banned;
         Goods containedFluid, empty;
         final Set<Recipe> production = new LinkedHashSet<>(), consumption = new LinkedHashSet<>();
         Goods(String id, boolean fluid) { this.id = id; this.fluid = fluid; }
@@ -29,6 +32,8 @@ final class ExportData {
     record Group(String id, List<Goods> variants) {}
     static final class Method {
         final String id, name;
+        String category = "gregtech";
+        boolean shapeless, fixedDimensions;
         final List<Goods> single = new ArrayList<>(), multi = new ArrayList<>();
         final int[] dimensions = new int[8];
         Goods crafter;
@@ -39,24 +44,20 @@ final class ExportData {
     }
     static final class Recipe {
         String id;
+        boolean gt = true;
         final Method method;
         final List<Io> io = new ArrayList<>();
         final Map<String, Double> metadata = new TreeMap<>();
         int voltage, ticks, amperage, tier, special, conflicts;
         Recipe(Method method) { this.method = method; }
         void identify() {
-            // Length-delimited strings and sorted keys make identities independent of map iteration order.
-            StringBuilder text = new StringBuilder();
-            append(text, method.id);
-            text.append(voltage).append(',').append(ticks).append(',').append(amperage).append(',')
-                .append(tier).append(',').append(special).append(';');
+            List<LegacyIds.Slot> in = new ArrayList<>(), fluidsIn = new ArrayList<>(), out = new ArrayList<>(), fluidsOut = new ArrayList<>();
             for (Io entry : io) {
-                text.append(entry.type()).append(',').append(entry.slot()).append(',')
-                    .append(entry.amount()).append(',').append(entry.probability()).append(';');
-                append(text, entry.goodsId());
+                List<LegacyIds.Stack> stacks = variants(entry.goods()).stream().map(g -> new LegacyIds.Stack(g, entry.amount())).toList();
+                LegacyIds.Slot slot = new LegacyIds.Slot(entry.slot(), stacks, entry.probability() / 100.0);
+                (entry.type() < 2 ? in : entry.type() == 2 ? fluidsIn : entry.type() == 3 ? out : fluidsOut).add(slot);
             }
-            metadata.forEach((key, value) -> { append(text, key); append(text, value.toString()); });
-            id = "r:gt:" + method.id + ":" + hash(text.toString());
+            id = LegacyIds.recipe(method.category, method.name, in, fluidsIn, out, fluidsOut);
         }
     }
 
@@ -87,9 +88,20 @@ final class ExportData {
         return object instanceof Goods g ? List.of(g) : ((Group) object).variants();
     }
 
+    /** Exactly the eligibility set used to create synthetic aspect recipes. */
+    Set<Goods> aspectCandidates() {
+        Set<Goods> retained = Collections.newSetFromMap(new IdentityHashMap<>());
+        goods.values().stream().filter(g -> g.keep).forEach(retained::add);
+        for (Recipe recipe : recipes) for (Io io : recipe.io) retained.addAll(variants(io.goods()));
+        retained.removeIf(g -> g.fluid || g.banned);
+        return retained;
+    }
+
     void prepare() {
         recipes.sort(Comparator.comparing(r -> r.id));
         Set<Goods> used = new HashSet<>(service);
+        goods.values().stream().filter(g -> g.fluid || g.keep).forEach(used::add);
+        goods.values().forEach(g -> { g.production.clear(); g.consumption.clear(); });
         Set<Group> usedGroups = new HashSet<>();
         for (Method method : methods) {
             method.single.stream().filter(Objects::nonNull).forEach(used::add);
@@ -116,7 +128,7 @@ final class ExportData {
         int icon = 0;
         for (Goods g : goods.values()) g.icon = icon++;
         for (Method method : methods) {
-            for (int section = 0; section < 4; section++) {
+            for (int section = 0; !method.fixedDimensions && section < 4; section++) {
                 int maxSlot = -1;
                 for (Recipe recipe : recipes) if (recipe.method == method) for (Io entry : recipe.io) {
                     int s = entry.type() <= 1 ? 0 : entry.type() == 2 ? 1 : entry.type() == 3 ? 2 : 3;

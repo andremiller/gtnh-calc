@@ -2,7 +2,6 @@ package tools.gtnh.calc.export;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.command.WrongUsageException;
 
 public class ExportCommand extends CommandBase {
     private final ExportJob job;
@@ -16,7 +15,7 @@ public class ExportCommand extends CommandBase {
 
     @Override
     public String getCommandUsage(ICommandSender sender) {
-        return "/gtnh-calc-export";
+        return "/gtnh-calc-export [previous.bin]";
     }
 
     @Override
@@ -31,9 +30,9 @@ public class ExportCommand extends CommandBase {
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
-        if (args.length != 0) {
-            throw new WrongUsageException(getCommandUsage(sender));
-        }
-        job.start(sender);
+        String previous = args.length == 0 ? null : String.join(" ", args);
+        if (previous != null && previous.length() >= 2 && previous.startsWith("\"") && previous.endsWith("\""))
+            previous = previous.substring(1, previous.length() - 1);
+        job.start(sender, previous);
     }
 }

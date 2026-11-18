@@ -26,6 +26,17 @@ public class MachineSelectionTest {
     }
 
     @Test
+    public void lastElectricCrafterAtATierMatchesReferenceSelection() {
+        Method method = new Method("test", "Test");
+        Goods first = machine("first", "First"), last = machine("last", "Last");
+        ArrayList<String> report = new ArrayList<>();
+        MachineSelection.add(method, first, true, true, 1, report);
+        MachineSelection.add(method, last, true, true, 1, report);
+        MachineSelection.finish(method);
+        assertSame(last, method.single.get(0)); assertSame(last, method.crafter); assertEquals(1, report.size());
+    }
+
+    @Test
     public void standardEbfPrecedesAdvancedAlternativesForAutomaticSelection() {
         Method method = new Method("blast", "Electric Blast Furnace");
         Goods volcanus = machine("volcanus", "Volcanus"), ebf = machine("ebf", "Electric Blast Furnace");

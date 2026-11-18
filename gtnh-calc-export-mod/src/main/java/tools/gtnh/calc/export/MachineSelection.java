@@ -15,8 +15,8 @@ final class MachineSelection {
                 return;
             }
             while (method.single.size() <= tier) method.single.add(null);
-            if (method.single.get(tier) == null) method.single.set(tier, machine);
-            else report.add("Machine warning: additional electric singleblock at tier " + tier + ": " + machine.id);
+            if (method.single.get(tier) != null) report.add("Machine warning: replacing electric singleblock at tier " + tier + ": " + machine.id + " (C# last-crafter-wins)");
+            method.single.set(tier, machine);
         } else if (!method.multi.contains(machine)) {
             // The version-7 'multiblocks' list also holds steam singleblocks with their own calculator rules.
             method.multi.add(machine);
@@ -25,7 +25,7 @@ final class MachineSelection {
 
     static void finish(Method method) {
         method.crafter = method.single.stream().filter(Objects::nonNull).findFirst()
-            .orElseGet(() -> method.multi.stream().filter(g -> method.name.equals(g.name)).findFirst()
+            .orElseGet(() -> method.multi.stream().filter(g -> (method.name.equals(g.name) || method.name.equals("Blast Furnace") && g.name.equals("Electric Blast Furnace"))).findFirst()
                 .orElse(method.multi.isEmpty() ? null : method.multi.get(0)));
         if (method.crafter == null) throw new IllegalStateException("No machine associated with " + method.name);
         // The solver chooses the first alternative for maps without electric singleblocks.

@@ -8,3 +8,10 @@ BSD license and patent grant. The accompanying libwebp-copyright.txt
 contains libwebp's license and attribution text as distributed by Debian.
 The bundled plugin and native libraries retain their original packages
 and resource paths because JNI depends on their names.
+
+Compatibility collectors and identity encoding are adapted from NESQL Exporter
+contributors' code, licensed LGPL-3.0:
+https://github.com/ShadowTheAge/nesql-exporter/tree/b5b896ebd9bcf4cfe1f4fad19ccdc7de8414ee57
+The adapted files identify their license in their source headers. The reference
+protobuf schemas are retained as test resources under the same license.
+No Hibernate, database, or NESQL runtime dependency is bundled.

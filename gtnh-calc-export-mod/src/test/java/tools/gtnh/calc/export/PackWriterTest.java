@@ -60,10 +60,12 @@ public class PackWriterTest {
     }
 
     @Test
-    public void stableIdentityIncludesSlotsQuantitiesAndMetadata() {
+    public void legacyIdentityIgnoresTimingAndMetadataButIncludesQuantities() {
         ExportData d = fixture(); Recipe recipe = d.recipes.get(0); String original = recipe.id;
         recipe.identify(); assertEquals(original, recipe.id);
-        recipe.metadata.put("new", 2.0); recipe.identify(); assertNotEquals(original, recipe.id);
+        recipe.metadata.put("new", 2.0); recipe.ticks++; recipe.identify(); assertEquals(original, recipe.id);
+        Io io = recipe.io.get(0); recipe.io.set(0, new Io(io.type(), io.goods(), io.slot(), io.amount() + 1, io.probability()));
+        recipe.identify(); assertNotEquals(original, recipe.id);
     }
 
     @Test

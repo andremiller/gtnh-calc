@@ -19,7 +19,13 @@ final class PackWriter {
         writer.set(0, 7);
         writer.set(1, refs(items)); writer.set(2, refs(fluids)); writer.set(3, refs(data.groups.values()));
         writer.set(4, refs(data.methods)); writer.set(5, refs(data.recipes));
-        writer.set(6, refs(data.service)); writer.set(7, writer.array());
+        writer.set(6, refs(data.service));
+        int[] remaps = new int[data.remaps.size()]; int remapIndex = 0;
+        for (var entry : data.remaps.entrySet()) {
+            int p = writer.reserve(2); remaps[remapIndex++] = p;
+            writer.set(p, writer.string(entry.getKey())); writer.set(p + 1, pointer(entry.getValue()));
+        }
+        writer.set(7, writer.array(remaps));
         for (Goods g : data.goods.values()) {
             int p = pointer(g);
             List<String> search = new ArrayList<>(g.tooltip); search.add(g.name);
@@ -52,9 +58,9 @@ final class PackWriter {
         }
         for (Method m : data.methods) {
             int p = pointer(m);
-            writer.set(p, writer.string(m.name)); writer.set(p + 1, writer.string("gregtech"));
+            writer.set(p, writer.string(m.name)); writer.set(p + 1, writer.string(m.category));
             writer.set(p + 2, writer.array(m.dimensions)); writer.set(p + 3, refs(m.multi));
-            writer.set(p + 4, 0); writer.set(p + 5, refs(m.single)); writer.set(p + 6, pointer(m.crafter));
+            writer.set(p + 4, m.shapeless ? 1 : 0); writer.set(p + 5, refs(m.single)); writer.set(p + 6, pointer(m.crafter));
         }
         for (Recipe r : data.recipes) {
             int p = pointer(r);
@@ -67,6 +73,7 @@ final class PackWriter {
                 io[i++] = entry.amount(); io[i++] = entry.probability();
             }
             writer.set(p + 5, writer.array(io)); writer.set(p + 6, pointer(r.method));
+            if (!r.gt) { writer.set(p + 7, -1); continue; }
             int gt = writer.reserve(7); writer.set(p + 7, gt);
             writer.set(gt, r.voltage); writer.set(gt + 1, r.ticks); writer.set(gt + 2, r.amperage);
             writer.set(gt + 3, r.tier); writer.set(gt + 5, r.conflicts); writer.set(gt + 6, r.special);
@@ -76,7 +83,9 @@ final class PackWriter {
             });
             writer.set(gt + 4, writer.array(metadata.stream().mapToInt(Integer::intValue).toArray()));
         }
-        return writer.gzip();
+        byte[] binary = writer.gzip();
+        ResearchAudit.verify(data, binary);
+        return binary;
     }
 
     private void allocate(Object object, int words) { pointers.put(object, writer.reserve(words)); }

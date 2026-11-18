@@ -1,0 +1,1207 @@
+[
+  {
+    "id": "r~--5D-nZtM4W3y520kNvU4g==",
+    "category": "gregtech",
+    "type": "Forge Hammer (LV)",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 0,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.blockores4",
+          "damage": 7929,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 4,
+        "slot": 0,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 5929,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "id": "r~--P09ClDNUWB6Z8RuN9F2A==",
+    "category": "minecraft",
+    "type": "Crafting (Shaped)",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 0,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 615,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 1,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 615,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 2,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 615,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 3,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 615,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 4,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 615,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 5,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 615,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 6,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 615,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 7,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 615,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 8,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 615,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 4,
+        "slot": 0,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 2615,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "id": "r~--l7UvQdPwieyDfV6NjffQ==",
+    "category": "gregtech",
+    "type": "Blast Furnace (IV)",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 0,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 2393,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 1,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.integrated_circuit",
+          "damage": 11,
+          "nbt": "",
+          "amount": 0
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 3,
+        "slot": 0,
+        "goods": {
+          "mod": "miscutils",
+          "internal": "neon",
+          "damage": 0,
+          "nbt": "",
+          "amount": 550
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 4,
+        "slot": 0,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 12393,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "id": "r~-0xdw_iNOq-RsirvvZhkuQ==",
+    "category": "minecraft",
+    "type": "Crafting (Shapeless)",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 0,
+        "goods": {
+          "mod": "ProjRed|Transmission",
+          "internal": "projectred.transmission.wire",
+          "damage": 21,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 4,
+        "slot": 0,
+        "goods": {
+          "mod": "ProjRed|Transmission",
+          "internal": "projectred.transmission.wire",
+          "damage": 17,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "id": "r~-1H9E2kMP5G96eA7t6Xf0g==",
+    "category": "thaumcraft",
+    "type": "Crucible",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 0,
+        "goods": {
+          "mod": "Botania",
+          "internal": "shinyFlower",
+          "damage": 6,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 8,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"tenebrae\"}",
+          "amount": 4
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 4,
+        "slot": 0,
+        "goods": {
+          "mod": "Botania",
+          "internal": "mushroom",
+          "damage": 6,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "id": "r~-5nOYAMOPIKhAZeXhwYljw==",
+    "category": "thaumcraft",
+    "type": "Arcane Infusion",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 2,
+        "goods": {
+          "mod": "EMT",
+          "internal": "EMTItems",
+          "damage": 15,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 10,
+        "goods": {
+          "mod": "EMT",
+          "internal": "EMTItems",
+          "damage": 15,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 12,
+        "goods": {
+          "mod": "minecraft",
+          "internal": "iron_ingot",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 22,
+        "goods": {
+          "mod": "EMT",
+          "internal": "EMTItems",
+          "damage": 15,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 25,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"aer\"}",
+          "amount": 8
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 26,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"aqua\"}",
+          "amount": 8
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 27,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"ignis\"}",
+          "amount": 8
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 28,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"ordo\"}",
+          "amount": 16
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 29,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"perditio\"}",
+          "amount": 8
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 30,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"terra\"}",
+          "amount": 16
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 4,
+        "slot": 0,
+        "goods": {
+          "mod": "minecraft",
+          "internal": "gold_ingot",
+          "damage": 0,
+          "nbt": "",
+          "amount": 2
+        },
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "id": "r~-9FfBA8fPHCT2scTjzx_zA==",
+    "category": "gregtech",
+    "type": "Mixer (HV)",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 0,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 2096,
+          "nbt": "",
+          "amount": 4
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 1,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 2591,
+          "nbt": "",
+          "amount": 2
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 3,
+        "slot": 0,
+        "goods": {
+          "mod": "bartworks",
+          "internal": "ammonium chloride",
+          "damage": 0,
+          "nbt": "",
+          "amount": 2000
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 5,
+        "slot": 0,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "thoriumelutionadsorbent",
+          "damage": 0,
+          "nbt": "",
+          "amount": 2000
+        },
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "id": "r~-D3D22lYMRuB4YQlsVEgaQ==",
+    "category": "avaritia",
+    "type": "Extreme Crafting (Shaped)",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 11,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 12,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 15,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 19,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 22,
+        "goods": {
+          "mod": "universalsingularities",
+          "internal": "universal.general.singularity",
+          "damage": 22,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 25,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 30,
+        "goods": {
+          "mod": "universalsingularities",
+          "internal": "universal.general.singularity",
+          "damage": 23,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 31,
+        "goods": {
+          "mod": "ExtraUtilities",
+          "internal": "block_bedrockium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 32,
+        "goods": {
+          "mod": "universalsingularities",
+          "internal": "universal.general.singularity",
+          "damage": 24,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 34,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 38,
+        "goods": {
+          "mod": "universalsingularities",
+          "internal": "universal.general.singularity",
+          "damage": 25,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 39,
+        "goods": {
+          "mod": "ExtraUtilities",
+          "internal": "block_bedrockium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 40,
+        "goods": {
+          "mod": "universalsingularities",
+          "internal": "universal.general.singularity",
+          "damage": 26,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 41,
+        "goods": {
+          "mod": "ExtraUtilities",
+          "internal": "block_bedrockium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 42,
+        "goods": {
+          "mod": "universalsingularities",
+          "internal": "universal.general.singularity",
+          "damage": 27,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 46,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 48,
+        "goods": {
+          "mod": "universalsingularities",
+          "internal": "universal.general.singularity",
+          "damage": 28,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 49,
+        "goods": {
+          "mod": "ExtraUtilities",
+          "internal": "block_bedrockium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 50,
+        "goods": {
+          "mod": "universalsingularities",
+          "internal": "universal.general.singularity",
+          "damage": 29,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 55,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 58,
+        "goods": {
+          "mod": "universalsingularities",
+          "internal": "universal.general.singularity",
+          "damage": 30,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 61,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 65,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 68,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 69,
+        "goods": {
+          "mod": "dreamcraft",
+          "internal": "BlackPlutonium",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 4,
+        "slot": 0,
+        "goods": {
+          "mod": "eternalsingularity",
+          "internal": "combined_singularity",
+          "damage": 4,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "id": "r~-KZyZaNRMo23gfKTpybHGw==",
+    "category": "thaumcraft",
+    "type": "Magical Crafting (Shaped)",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 0,
+        "goods": {
+          "mod": "Thaumcraft",
+          "internal": "ItemResource",
+          "damage": 14,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 1,
+        "goods": {
+          "mod": "etfuturum",
+          "internal": "shulker_shell",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 2,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 2406,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 3,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 17204,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 4,
+        "goods": {
+          "mod": "etfuturum",
+          "internal": "diamond_barrel",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 5,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 17204,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 6,
+        "goods": {
+          "mod": "gregtech",
+          "internal": "gt.metaitem.01",
+          "damage": 2406,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 7,
+        "goods": {
+          "mod": "etfuturum",
+          "internal": "shulker_shell",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 8,
+        "goods": {
+          "mod": "Thaumcraft",
+          "internal": "ItemResource",
+          "damage": 14,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 9,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"aer\"}",
+          "amount": 50
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 10,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"aqua\"}",
+          "amount": 50
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 11,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"ignis\"}",
+          "amount": 50
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 12,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"ordo\"}",
+          "amount": 50
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 13,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"perditio\"}",
+          "amount": 50
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 14,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"terra\"}",
+          "amount": 50
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 4,
+        "slot": 0,
+        "goods": {
+          "mod": "etfuturum",
+          "internal": "shulker_box",
+          "damage": 0,
+          "nbt": "{Type:3b}",
+          "amount": 1
+        },
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "id": "r~1lnLJzkjNVKxUFz91f0kHg==",
+    "category": "thaumcraft",
+    "type": "Magical Crafting (Shapeless)",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 0,
+        "goods": {
+          "mod": "thaumicenergistics",
+          "internal": "storage.casing",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 1,
+        "goods": {
+          "mod": "thaumicenergistics",
+          "internal": "storage.component",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 9,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"aqua\"}",
+          "amount": 5
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 10,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"ordo\"}",
+          "amount": 5
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 11,
+        "goods": {
+          "mod": "aspectrecipeindex",
+          "internal": "aspect",
+          "damage": 0,
+          "nbt": "{Aspect:\"terra\"}",
+          "amount": 5
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 4,
+        "slot": 0,
+        "goods": {
+          "mod": "thaumicenergistics",
+          "internal": "storage.essentia",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "id": "r~aKunYvnSNBm4LYBp3JuI9Q==",
+    "category": "avaritia",
+    "type": "Extreme Crafting (Shapeless)",
+    "entries": [
+      {
+        "field": 2,
+        "slot": 0,
+        "goods": {
+          "mod": "Avaritia",
+          "internal": "Resource",
+          "damage": 2,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 1,
+        "goods": {
+          "mod": "minecraft",
+          "internal": "beef",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 2,
+        "goods": {
+          "mod": "minecraft",
+          "internal": "chicken",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 3,
+        "goods": {
+          "mod": "minecraft",
+          "internal": "porkchop",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 4,
+        "goods": {
+          "mod": "minecraft",
+          "internal": "fish",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 5,
+        "goods": {
+          "mod": "TwilightForest",
+          "internal": "item.venisonRaw",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 6,
+        "goods": {
+          "mod": "TwilightForest",
+          "internal": "item.meefRaw",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 7,
+        "goods": {
+          "mod": "Natura",
+          "internal": "impmeat",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 2,
+        "slot": 8,
+        "goods": {
+          "mod": "harvestcraft",
+          "internal": "muttonrawItem",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      },
+      {
+        "field": 4,
+        "slot": 0,
+        "goods": {
+          "mod": "Avaritia",
+          "internal": "Cosmic_Meatballs",
+          "damage": 0,
+          "nbt": "",
+          "amount": 1
+        },
+        "probability": 1.0
+      }
+    ]
+  }
+]

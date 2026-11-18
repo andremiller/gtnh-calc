@@ -4,7 +4,7 @@
         {
             "modid": "${modId}",
             "name": "${modName}",
-            "description": "Direct Macerator and Electric Blast Furnace export for GTNH Calculator.",
+            "description": "Direct live-game export with NESQL/C# content and identity compatibility for GTNH Calculator.",
             "version": "${modVersion}",
             "mcversion": "${minecraftVersion}",
             "authorList": [],
