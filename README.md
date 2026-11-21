@@ -9,6 +9,8 @@ Large parts of this project were written using AI assistance, so code style and 
 
 ## Changes since fork
 
+- Updated the data export for **GTNH 2.9.1**; see the [validation record](docs/export-validation-2.9.1.md).
+
 - Filter saved pages by name as you type, with a clear button.
 
 - Item tooltips show an icon beside the name and include the hovered icon’s quantity.

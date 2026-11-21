@@ -53,6 +53,13 @@ jobs:
           echo "Data directory:"
           ls -la dist/data/
       
+      - name: Verify configured dataset
+        run: |
+          version=$(sed -n 's/export const datasetVersion = "\([^"]*\)";.*/\1/p' src/dataset.ts)
+          test -n "$version"
+          cmp "data/$version/data.bin" "dist/data/$version/data.bin"
+          cmp "data/$version/atlas.webp" "dist/data/$version/atlas.webp"
+
       - name: Verify atlas
         run: for dir in dist/data/*/; do test -f "$dir/data.bin" && test -f "$dir/atlas.webp" || exit 1; done
 

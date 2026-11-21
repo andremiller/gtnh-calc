@@ -74,3 +74,5 @@ The two unsupported candidates referenced unregistered `net.minecraft.item.ItemD
 ## Deferred image reuse
 
 Every current direct export renders and encodes a full atlas. No skip/reuse argument exists yet. C# has `--skipIcons`, with a warning that changes to item selection can invalidate icon indices. A future direct reuse option must preserve the old atlas's item-to-icon mapping, verify coverage and make artwork refresh explicit. Copying an arbitrary old atlas next to a newly generated binary is unsupported.
+
+The active calculator dataset is now GTNH 2.9.1; see its [validation record](export-validation-2.9.1.md). Historical 2.9.0 findings above remain version-specific.
