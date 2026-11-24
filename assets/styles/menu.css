@@ -11,7 +11,6 @@
     flex-direction: column;
     gap: 12px;
     flex-shrink: 0;
-    overflow-y: auto;
     background-color: rgba(198, 198, 198);
     color: #3F3F3F;
     transition: transform 0.15s ease;
@@ -42,10 +41,21 @@
 }
 
 
+.menu-pages {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
 .page-list {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    overflow-y: auto;
+}
+
+.page-list > * {
+    flex-shrink: 0;
 }
 
 .page-button {
