@@ -11,6 +11,8 @@ Large parts of this project were written using AI assistance, so code style and 
 
 - Updated the data export for **GTNH 2.9.2**. See the [validation record](docs/export-validation-2.9.2.md).
 
+- Added a per-page **Average Power / Max Power** toggle below **Whole recipes only**. It switches recipe, group, and page totals between average draw at the planned production rate and peak draw with all required machines running at once.
+
 - Keep the New Page controls visible while scrolling through saved pages.
 
 - Filter saved pages by name as you type, with a clear button.
@@ -28,10 +30,6 @@ Large parts of this project were written using AI assistance, so code style and 
 - Added a [client-side export mod](gtnh-calc-export-mod/README.md) for GTNH 2.9.0 that writes calculator recipe data and a WebP icon atlas directly from the game, with optional previous-export compatibility. Compatibility adapters reference [NESQL Exporter contributors](https://github.com/ShadowTheAge/nesql-exporter).
 
 - Merged [upstream PR #132](https://github.com/ShadowTheAge/gtnh/pull/132) by [Bmandk](https://github.com/Bmandk): adds a “Whole recipes only” setting to prevent fractional crafts, preserving the original commit and authorship.
-
-- Added a per-page Average Power / Max Power toggle. Max Power shows the combined draw if all machines needed for the recipes run at once.
-
-
 
 ## Development
 
