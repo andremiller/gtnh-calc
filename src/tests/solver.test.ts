@@ -1,5 +1,5 @@
 import { Repository } from "../repository";
-import { PageModel, RecipeGroupModel, RecipeModel } from '../page';
+import { PageModel, RecipeGroupModel, RecipeModel, serializer } from '../page';
 import { SolvePage } from '../solver';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -47,6 +47,16 @@ describe('Solver', () => {
         });
     });
 
+    it('defaults older pages to average power and round-trips the selected mode', () => {
+        const page = new PageModel({ settings: { wholeRecipes: true } });
+        expect(page.settings.showMaxPower).toBe(false);
+        page.settings.showMaxPower = true;
+        const saved = JSON.parse(JSON.stringify(serializer.Serialize(page)));
+        const reloaded = new PageModel(saved);
+        expect(reloaded.settings.showMaxPower).toBe(true);
+        expect(reloaded.settings.wholeRecipes).toBe(true);
+    });
+
     testFiles.forEach((testFile: string) => {
         describe(`Processing ${testFile}`, () => {
             it('should process without errors', async () => {
@@ -74,4 +84,4 @@ describe('Solver', () => {
             });
         });
     });
-}); 
+});

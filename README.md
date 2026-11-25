@@ -29,6 +29,8 @@ Large parts of this project were written using AI assistance, so code style and 
 
 - Merged [upstream PR #132](https://github.com/ShadowTheAge/gtnh/pull/132) by [Bmandk](https://github.com/Bmandk): adds a “Whole recipes only” setting to prevent fractional crafts, preserving the original commit and authorship.
 
+- Added a per-page Average Power / Max Power toggle. Max Power shows the combined draw if all machines needed for the recipes run at once.
+
 
 
 ## Development

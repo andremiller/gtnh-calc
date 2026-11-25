@@ -67,6 +67,7 @@ function CreateLinkByAlgorithm(model:Model, algorithm:LinkAlgorithm, group:Recip
 
 function PreProcessRecipe(recipeModel:RecipeModel, model:Model, collection:LinkCollection)
 {
+    recipeModel.runningPower = 0;
     let recipe = Repository.current.GetById<Recipe>(recipeModel.recipeId);
     if (!recipe)
         return;
@@ -134,7 +135,10 @@ function PreProcessRecipe(recipeModel:RecipeModel, model:Model, collection:LinkC
         }
 
         recipeModel.overclockFactor = overclockResult.overclockSpeed * speedModifier * speedCorrectionFactor * parallels;
-        recipeModel.powerFactor = amperage * overclockResult.overclockPower * energyModifier / speedModifier / speedCorrectionFactor;
+        const powerMultiplier = amperage * overclockResult.overclockPower * energyModifier;
+        recipeModel.powerFactor = powerMultiplier / speedModifier / speedCorrectionFactor;
+        // Overclock power is expressed per craft. Apply overclock speed to get running EU/t.
+        recipeModel.runningPower = gtRecipe.voltage * powerMultiplier * overclockResult.overclockSpeed * parallels;
         recipeModel.parallels = parallels;
         recipeModel.overclockTiers = overclockTiers;
         recipeModel.overclockName = overclockResult.overclockName;
@@ -253,6 +257,14 @@ function ApplySolutionRecipe(recipeModel:RecipeModel, solution:Solution):void
     if (gtRecipe && gtRecipe.durationTicks > 0) {
         flow.energy[recipeModel.voltageTier] = gtRecipe.durationMinutes * gtRecipe.voltage * solutionValue * recipeModel.powerFactor;
         recipeModel.crafterCount = solutionValue * gtRecipe.durationMinutes / recipeModel.overclockFactor;
+        if (recipeModel.crafterCount > 0) {
+            const nearestInteger = Math.round(recipeModel.crafterCount);
+            // Avoid counting an extra machine when the solver returns just above an integer.
+            const machineCount = nearestInteger > 0 && Math.abs(recipeModel.crafterCount - nearestInteger) <= 1e-8
+                ? nearestInteger
+                : Math.ceil(recipeModel.crafterCount);
+            flow.maxEnergy[recipeModel.voltageTier] = recipeModel.runningPower * machineCount;
+        }
     }
 }
 

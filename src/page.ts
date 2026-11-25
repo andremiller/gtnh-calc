@@ -145,6 +145,7 @@ export class FlowInformation {
     input: {[key:string]:number} = {};
     output: {[key:string]:number} = {};
     energy: {[key:number]:number} = {};
+    maxEnergy: {[key:number]:number} = {};
 
     Add(goods:RecipeObject, amount:number, isOutput:boolean) {
         if (isOutput) {
@@ -166,6 +167,10 @@ export class FlowInformation {
         for (const key in other.energy) {
             if (other.energy[key] === 0) continue;
             this.energy[key] = (this.energy[key] || 0) + other.energy[key];
+        }
+        for (const key in other.maxEnergy) {
+            if (other.maxEnergy[key] === 0) continue;
+            this.maxEnergy[key] = (this.maxEnergy[key] || 0) + other.maxEnergy[key];
         }
     }   
 }
@@ -234,6 +239,7 @@ export class RecipeModel extends RecipeGroupEntry
     crafterCount:number = 0;
     overclockFactor:number = 1;
     powerFactor:number = 1;
+    runningPower:number = 0;
     parallels:number = 0;
     overclockName:string | undefined;
     overclockTiers:number = 0;
@@ -340,6 +346,7 @@ type Settings = {
     minVoltage: number;
     timeUnit: "hour" | "min" | "sec" | "tick";
     wholeRecipes: boolean;
+    showMaxPower: boolean;
 }
 
 export class PageModel extends ModelObject
@@ -350,7 +357,7 @@ export class PageModel extends ModelObject
     private history: string[] = [];
     private readonly MAX_HISTORY = 50;
     status: "not solved" | "solved" | "infeasible" | "unbounded" = "not solved";
-    settings: Settings = {minVoltage: 0, timeUnit: "min", wholeRecipes: false};
+    settings: Settings = {minVoltage: 0, timeUnit: "min", wholeRecipes: false, showMaxPower: false};
     timeScale: number = 1;
 
     Visit(visitor: ModelObjectVisitor): void {
@@ -374,6 +381,7 @@ export class PageModel extends ModelObject
                 this.products = source.products.map((product: any) => new ProductModel(product));
             if (source.rootGroup instanceof Object)
                 this.rootGroup = new RecipeGroupModel(source.rootGroup);
+            this.settings.showMaxPower = source.settings?.showMaxPower === true;
             if (source.settings instanceof Object) {
                 if (typeof source.settings.minVoltage === "number")
                     this.settings.minVoltage = source.settings.minVoltage;
@@ -501,9 +509,10 @@ export function UpdateProject(visualOnly:boolean = false) {
     notifyListeners();
 
     // workaround to getting empty recipes on first solve
-    if (!visualOnly)
+    if (!visualOnly) {
         SolvePage(page);
-    notifyListeners();
+        notifyListeners();
+    }
 }
 
 async function GetUrlHashFromJson(json:string):Promise<string>

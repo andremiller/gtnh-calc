@@ -5,7 +5,8 @@ import * as path from 'path';
 import * as zlib from 'zlib';
 import { Repository, Item, Fluid, OreDict, Recipe, Goods } from '../repository';
 import { SearchQuery } from '../searchQuery';
-import { PageModel, RecipeModel, LinkAlgorithm } from '../page';
+import { PageModel, RecipeGroupModel, RecipeModel, LinkAlgorithm } from '../page';
+import { machines } from '../machines';
 import { SolvePage } from '../solver';
 import './setup';
 
@@ -110,6 +111,49 @@ describe('Direct Java export compatibility', () => {
             second.choices.coilTier = 1;
             SolvePage(page);
             expect(second.powerFactor).toBeCloseTo(0.95);
+        } finally { log.mockRestore(); }
+    });
+
+    it('sums the running draw of whole machines across nested groups and tiers', () => {
+        const log = jest.spyOn(console, 'log').mockImplementation(() => {});
+        try {
+            const blast = recipeNamed(repository, 'Electric Blast Furnace');
+            const macerator = recipeNamed(repository, 'Macerator');
+            const blastRow = { type: 'recipe', recipeId: blast.id, voltageTier: 1 };
+            const links = Object.fromEntries(Object.keys(repository.objectPositionMap).map(id => [id, LinkAlgorithm.Ignore]));
+            const page = new PageModel({
+                rootGroup: {
+                    links,
+                    elements: [
+                        { type: 'recipe', recipeId: macerator.id, voltageTier: 0, fixedCrafterCount: 1 + 1e-9 },
+                        { type: 'recipe_group', links, elements: [{ ...blastRow, fixedCrafterCount: 1.2 }, blastRow] }
+                    ]
+                }
+            });
+            SolvePage(page);
+            expect(page.status).toBe('solved');
+            const [maceratorRow, group] = page.rootGroup.elements as [RecipeModel, RecipeGroupModel];
+            const [active, idle] = group.elements as RecipeModel[];
+            expect(active.flow.energy[1]).toBeCloseTo(144);
+            expect(active.flow.maxEnergy[1]).toBe(240);
+            expect(idle.flow.maxEnergy).toEqual({});
+            expect(maceratorRow.crafterCount).toBeGreaterThan(1);
+            expect(page.rootGroup.flow.maxEnergy).toEqual({
+                0: macerator.gtRecipe.voltage * macerator.gtRecipe.amperage,
+                1: 240
+            });
+            expect(group.flow.maxEnergy).toEqual({ 1: 240 });
+
+            const parallels = jest.replaceProperty(machines['Electric Blast Furnace'], 'parallels', 2);
+            try {
+                active.voltageTier = 3;
+                active.choices.coilTier = 1;
+                SolvePage(page);
+                expect(active.overclockTiers).toBe(1);
+                expect(active.parallels).toBe(2);
+                expect(active.flow.maxEnergy[3]).toBeCloseTo(120 * 0.95 * 4 * 2 * 2);
+                expect(group.flow.maxEnergy[1]).toBeUndefined();
+            } finally { parallels.restore(); }
         } finally { log.mockRestore(); }
     });
 });

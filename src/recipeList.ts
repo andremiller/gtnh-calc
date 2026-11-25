@@ -266,6 +266,13 @@ export class RecipeList {
             }
         });
 
+        this.actionHandlers.set("update_show_max_power", (obj, event) => {
+            if (obj instanceof PageModel && event.type === "change") {
+                obj.settings.showMaxPower = (event.target as HTMLInputElement).checked;
+                UpdateProject(true);
+            }
+        });
+
         this.actionHandlers.set("update_machine_choice", (obj, event, parent) => {
             if (obj instanceof RecipeModel && event.type === "change") {
                 const target = event.target as HTMLInputElement | HTMLSelectElement;
@@ -612,7 +619,7 @@ export class RecipeList {
 
         return `
             <td class="text-small white-text">
-                ${renderEnergyItems(flow.energy)}
+                ${renderEnergyItems(page.settings.showMaxPower ? flow.maxEnergy : flow.energy)}
             </td>
             <td>
                 <div class="io-items">
@@ -791,7 +798,7 @@ export class RecipeList {
                                     <input type="text" class="group-name-input" value="${group.name}" data-iid="${group.iid}" data-action="update_group_name" placeholder="Group name">
                                 </div>
                             </th>
-                            <th class="energy-cell">POWER</th>
+                            <th class="energy-cell">${page.settings.showMaxPower ? 'MAX POWER' : 'AVERAGE POWER'}</th>
                             <th class="inputs-cell">INPUTS/${page.settings.timeUnit}</th>
                             <th class="outputs-cell">OUTPUTS/${page.settings.timeUnit}</th>
                             <th class="action-cell">
@@ -853,6 +860,13 @@ export class RecipeList {
                         Whole recipes only (no partial crafts)
                     </label>
                 </div>
+                <div class="setting-item">
+                    <label title="Max Power assumes all required machines run at once.">
+                        Average Power
+                        <input type="checkbox" aria-label="Show Max Power" data-iid="${page.iid}" data-action="update_show_max_power" ${page.settings.showMaxPower ? 'checked' : ''}>
+                        Max Power
+                    </label>
+                </div>
                 <div class="share-links">
                     Share:
                     <a href="#" data-action="copy_link">Copy shareable link to clipboard</a> •
@@ -869,7 +883,7 @@ export class RecipeList {
                     <tr>
                         <th class="icon-cell"></th>
                         <th class="short-info-cell"></th>
-                        <th class="energy-cell">POWER</th>
+                        <th class="energy-cell">${page.settings.showMaxPower ? 'MAX POWER' : 'AVERAGE POWER'}</th>
                         <th class="inputs-cell">INPUTS/${page.settings.timeUnit}</th>
                         <th class="outputs-cell">OUTPUTS/${page.settings.timeUnit}</th>
                         <th class="action-cell"></th>
