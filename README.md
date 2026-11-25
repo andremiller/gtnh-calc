@@ -9,6 +9,8 @@ Large parts of this project were written using AI assistance, so code style and 
 
 ## Changes since fork
 
+- Updated the data export for **GTNH 2.9.2**. See the [validation record](docs/export-validation-2.9.2.md).
+
 - Keep the New Page controls visible while scrolling through saved pages.
 
 - Updated the data export for **GTNH 2.9.1**; see the [validation record](docs/export-validation-2.9.1.md).

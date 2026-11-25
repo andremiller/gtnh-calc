@@ -79,14 +79,15 @@ From the calculator repository root, with Node 20 selected:
 ```bash
 npm run build
 export_dir="/absolute/path/to/completed/export"
+version=$(sed -n 's/^export const datasetVersion = "\([^"]*\)";$/\1/p' src/dataset.ts)
 preview_dir=$(mktemp -d /tmp/gtnh-calc-preview.XXXXXX)
-test -f "$export_dir/COMPLETE" && \
+test -n "$version" && test -f "$export_dir/COMPLETE" && \
     cp -a dist/. "$preview_dir/" && \
-    cp "$export_dir/data.bin" "$export_dir/atlas.webp" "$preview_dir/data/2.9.0/" && \
+    cp "$export_dir/data.bin" "$export_dir/atlas.webp" "$preview_dir/data/$version/" && \
     python3 -m http.server 5501 --bind 127.0.0.1 --directory "$preview_dir"
 ```
 
-Visit `http://localhost:5501`. Test fresh projects and representative existing projects. Stop the server with Ctrl+C. This leaves the checked-in dataset unchanged.
+Visit `http://127.0.0.1:5501` in a fresh browser context. This preview serves the candidate pair at the configured dataset path, so the version label still comes from the build's `src/dataset.ts`. Check the label again after updating the configured version and rebuilding for activation. Test fresh projects and representative existing projects, then stop the server with Ctrl+C. See the [dataset update runbook](../docs/updating-datasets.md#checking-the-production-build-in-a-browser) for browser checks.
 
 Compare a candidate against the checked-in reference or another export:
 
